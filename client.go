@@ -71,5 +71,6 @@ func (c *client) err(err error) {
 }
 
 func (c *client) msg(msg string) {
-	c.con.Write([]byte("> " + msg + "\n"))
+	tmp := msg[:128]
+	c.con.Write([]byte("> " + tmp + "\n"))
 }
